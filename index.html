@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BANDON</title>
+<style>
+body{background:#000;color:#0f0;font-family:monospace;text-align:center;padding:20px}
+button{padding:12px;background:#0f0;border:none;font-size:16px}
+input{width:75%;padding:12px;font-size:16px}
+#chat{margin-top:20px;text-align:left}
+</style>
+</head>
+<body>
+<h1>🤖 BANDON ONLINE</h1>
+<p>Security Guard Mode Active. Ready Boss.</p>
+<div id="chat"></div>
+<br>
+<input id="msg" placeholder="Talk to Bandon...">
+<button onclick="talk()">SEND</button>
+<script>
+function talk(){
+ let m=document.getElementById('msg').value;
+ let c=document.getElementById('chat');
+ c.innerHTML+=`<p><b>You:</b> ${m}</p>`;
+ let r="I'm here Boss, I got you.";
+ let l=m.toLowerCase();
+ if(l.includes('hello')||l.includes('hi')) r="Hello Boss! Bandon is online and guarding you.";
+ if(l.includes('who are you')) r="I am BANDON, your guy. Your Jarvis. Built for you.";
+ if(l.includes('remember')) r="Remembered Boss. I will not forget.";
+ c.innerHTML+=`<p><b>BANDON:</b> ${r}</p>`;
+ document.getElementById('msg').value='';
+}
+</script>
+</body>
+</html>
